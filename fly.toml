@@ -1,0 +1,28 @@
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+app = ''               # Change this to your app name or you can set it when you run `fly launch`
+primary_region = 'iad'
+
+[build]
+image = 'ghcr.io/medama-io/medama:latest'
+
+[env]
+ANALYTICS_DATABASE_HOST = '/db/analytics.db'
+APP_DATABASE_HOST = '/db/app.db'
+PORT = '8080'
+
+[[mounts]]
+source = 'medama_db'
+destination = '/db'
+
+[http_service]
+internal_port = 8080
+force_https = true
+auto_start_machines = true
+min_machines_running = 1
+processes = ['app']
+
+[[vm]]
+memory = '512mb'
+cpu_kind = 'shared'
+cpus = 1
