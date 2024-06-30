@@ -4,9 +4,13 @@ This is a simple repository to store the initial configuration for a Fly.io app 
 
 ## Getting Started
 
-To deploy the app, you need to have the Fly CLI installed. You can install it by running the following command:
+To deploy the app, you need to have an account on Fly.io and Fly CLI installed. Then you can run the following commands in a directory such as `medama-analytics`:
 
 ```bash
+# Make a directory for the configuration
+mkdir medama-analytics
+cd medama-analytics
+
 # Be sure you're running the latest version of flyctl.
 fly version update
 
